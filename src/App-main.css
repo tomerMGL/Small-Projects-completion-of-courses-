@@ -1,0 +1,13 @@
+#countries{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  #countries>tr>th{
+    background-color: violet;
+
+  }
+  #countries>tr>td{
+    background-color: thistle;
+    
+  }

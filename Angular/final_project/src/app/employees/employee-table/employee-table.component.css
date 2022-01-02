@@ -1,0 +1,24 @@
+img{
+    border: black solid 1px;
+    width: 10rem;
+    margin: auto,auto;
+}
+
+
+#tblbd{
+    background-color: #201a5e;
+    color:#ffffff;
+}
+
+.doRed{
+    background-color: #ff0000;
+}
+
+#tblhead{
+    background-color: black;
+    color: white;
+}
+
+.table-striped>tbody{
+    background-color: teal;
+}

@@ -1,0 +1,59 @@
+<table class="table table-striped">
+    <thead>
+      <tr id="tblhead">
+        <th scope="col">תמונה</th>
+        <th scope="col">ת.ז</th>
+        <th scope="col">שם</th>
+        <th scope="col">גיל</th>
+        <th scope="col">כתובת</th>
+        <th scope="col">שם עבודה</th>
+        <th scope="col">שעות חודשיות</th>
+        <th scope="col">שכר שעתי</th>
+        <th scope="col">שכר חודשי</th>
+
+
+    </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let e of employees" [ngClass]="{'doRed' : (e.payPerHour*e.numberOfHourPerMonth)<3000}">
+        <th scope="row"><img src={{e.image}}></th>
+        <td >{{e.id}}</td>
+        <td>{{e.fullName}}</td>
+        <td>{{e.age}}</td>
+        <td>{{e.address}}</td>
+        <td>{{e.workName}}</td>
+        <td>{{e.numberOfHourPerMonth}}</td>
+        <td>{{e.payPerHour}}</td>
+        <td>{{e.payPerHour*e.numberOfHourPerMonth}}</td>
+
+
+
+
+        <ng-template #editModal let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">{{p.fullName}}</h4>
+            </div>
+            <div class="modal-body">
+              <app-edit-pupils [pupil]="p"></app-edit-pupils><br/>
+              <input type="text" placeholder="שם" (keyup)="updateName($event)" id={{p.id}}>
+              <input type="text" placeholder="גיל" (keyup)="updateAge($event)" id={{p.id}}>
+              <input type="text" placeholder="עיר מגורים" (keyup)="updateAddress($event)" id={{p.id}}>
+              <input type="text" placeholder="ציונים" (keyup)="updateGrade($event)" id={{p.id}}>
+
+        
+        
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">סגור</button>
+            </div>
+          
+          </ng-template>
+
+
+      </tr>
+
+    </tbody>
+
+
+
+  </table>

@@ -1,0 +1,31 @@
+<div class="header">
+    <div>
+        <img class="main-img" src="./../assets/image/main-img.jpg" alt="">
+        <a routerLink="/home"><h1 class="main-title">ברוכים הבאים לבית הספר שלנו</h1></a>
+    </div>
+    <div class="menu">
+
+        <a routerLink="/teacher">
+        <div class="menu-item">
+           מורים
+        </div>
+        </a>
+        <a routerLink="/pupils">
+        <div class="menu-item">
+             תלמידים
+        </div>
+        </a>
+        <a routerLink="/employees">
+        <div class="menu-item">
+            עובדים
+        </div>
+    </a>
+    </div>
+</div>
+
+<router-outlet>
+</router-outlet>
+<div class="footer">
+    כל הזכויות שמורות לתומר גזיאל &copy; {{year}}
+</div>
+

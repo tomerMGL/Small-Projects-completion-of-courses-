@@ -1,0 +1,15 @@
+<div class="card">
+    <img class="card-img-top" src={{pupil.image}} alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{pupil.fullName}}</h5>
+      <p class="card-text">תעודת זהות : {{pupil.id}}</p>
+      <p class="card-text">גיל : {{pupil.age}}</p>
+      <p class="card-text">עיר מגורים : {{pupil.address}}</p>
+      <p class="card-text">ציונים : <p *ngFor="let i of pupil.grades | keyvalue">{{i.key}} : {{i.value}}</p>
+
+
+    </div>
+
+
+    </div>
+    

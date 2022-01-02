@@ -1,0 +1,49 @@
+<div *ngFor="let t of teachers; let x = index">
+
+<div class="card-group" *ngIf="x%3==0">
+
+
+      <div class="card" *ngFor="let z of [0,1,2]" >
+        <a (click)="open(editModal)"><img class="card-img-top" src={{teachers[x+z].image}} alt="Card image cap"></a>
+        <div class="card-body">
+          <h5 class="card-title">{{teachers[x+z].fullName}}</h5>
+          <p class="card-text">תעודת זהות : {{teachers[x+z].id}}</p>
+          <p class="card-text">גיל : {{teachers[x+z].age}}</p>
+          <p class="card-text">עיר מגורים : {{teachers[x+z].address}}</p>
+
+          <p class="card-text"><small class="text-muted">שכר חודשי : ₪ {{teachers[x+z].payPerHour*teachers[x+z].numberOfHourPerMonth}}</small></p>
+        </div>
+        
+        <a (click)="open(editModal)"><button type="button" class="btn btn-primary" id="editBtn" >ערוך</button></a>
+
+      
+      
+    
+  
+
+  <ng-template #editModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{teachers[x+z].fullName}}</h4>
+    </div>
+    <div class="modal-body">
+      <app-edit-teacher [teacher]="teachers[x+z]"></app-edit-teacher><br/>
+      <input type="text" placeholder="שם" (keyup)="updateName($event)" id={{teachers[x+z].id}}>
+      <input type="text" placeholder="גיל" (keyup)="updateAge($event)" id={{teachers[x+z].id}}>
+      <input type="text" placeholder="עיר מגורים" (keyup)="updateAddress($event)" id={{teachers[x+z].id}}>
+      <input type="text" placeholder="מקצוע" (keyup)="updateProfssion($event)" id={{teachers[x+z].id}}>
+      <input type="text" placeholder="כיתות" (keyup)="updateClass($event)" id={{teachers[x+z].id}}>
+      <input type="text" placeholder="ותק" (keyup)="updateSeniority($event)" id={{teachers[x+z].id}}>
+      <input type="text" placeholder="שעות עבודה בחודש" (keyup)="updateNumberOfHourPerMonth($event)" id={{teachers[x+z].id}}>
+      <input type="text" placeholder="שכר לשעה" (keyup)="updatePayPerHour($event)" id={{teachers[x+z].id}}>
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">סגור</button>
+    </div>
+  
+  </ng-template>
+</div>
+</div>
+   
+</div>

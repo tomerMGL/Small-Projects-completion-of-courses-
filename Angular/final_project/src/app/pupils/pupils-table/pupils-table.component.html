@@ -1,0 +1,54 @@
+
+<table class="table table-striped">
+    <thead>
+      <tr id="tblhead">
+        <th scope="col">תמונה</th>
+        <th scope="col">ת.ז</th>
+        <th scope="col">שם</th>
+        <th scope="col">גיל</th>
+        <th scope="col">כתובת</th>
+        <th scope="col">ציונים</th>
+        <th scope="col">ערוך</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let p of pupils" [ngClass]="{'doRed' : getAvgGrades(p.id)<65}">
+        <th scope="row"><img src={{p.image}}></th>
+        <td >{{p.id}}</td>
+        <td>{{p.fullName}}</td>
+        <td>{{p.age}}</td>
+        <td>{{p.address}}</td>
+        <td  ><p *ngFor="let i of p.grades | keyvalue">{{i.key}} : {{i.value}}</p></td>
+        <td><a (click)="open(editModal)"><button type="button" class="btn btn-primary" >ערוך</button></a></td>
+
+
+
+
+        <ng-template #editModal let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">{{p.fullName}}</h4>
+            </div>
+            <div class="modal-body">
+              <app-edit-pupils [pupil]="p"></app-edit-pupils><br/>
+              <input type="text" placeholder="שם" (keyup)="updateName($event)" id={{p.id}}>
+              <input type="text" placeholder="גיל" (keyup)="updateAge($event)" id={{p.id}}>
+              <input type="text" placeholder="עיר מגורים" (keyup)="updateAddress($event)" id={{p.id}}>
+              <input type="text" placeholder="ציונים" (keyup)="updateGrade($event)" id={{p.id}}>
+
+        
+        
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">סגור</button>
+            </div>
+          
+          </ng-template>
+
+
+      </tr>
+
+    </tbody>
+
+
+
+  </table>
